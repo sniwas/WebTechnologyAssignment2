@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <link rel="stylesheet" href ="style.css">
+  <title>Registeration Form</title>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbygV52Og19s7ATy861OAAqsHxmGUe3anX-tTqDg9mhrwbMUezq3_ru-GQHnGALcLJo/exec'
+    const form = document.forms['Web-Technology']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+  
+</head>
+<body>
+  
+  <div class="container ">
+    <div class="header">
+      <h2>Registration Form</h2>
+      </div>
+    <form name="Web-Technology" method='post' action="data.php">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="first_name" >First Name</label>
+            <input type="text" style="text-transform: capitalize;" class="form-control" id="first_name" name="first_name" placeholder="First Name">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="last_name">Last Name</label>
+            <input type="text" style="text-transform: capitalize;" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+        </div>
+    </div>
+  <div class="form-group ">
+      <label for="dateOfBirth">Date of Birth</label>
+      <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth">
+  </div>
+  <div class="form-group ">
+    <label for="Age">Your age</label>
+    <input type="text" class="form-control" id="Age" name="Age" >
+</div>
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" class="form-control" id="phone" value="+91" name="phone" placeholder="Phone Number" minlength="13" maxlength ="13">
+  </div>
+       
+      
+  <div class="form-group col-md-6">
+    <label for="gender">Gender</label>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" id="male" value="male">
+        <label class="form-check-label" for="male">Male</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+        <label class="form-check-label" for="female">Female</label>
+    </div>
+</div>
+<fieldset>
+  <label for="Bloodgroup">Choose your Bloodgroup:</label>
+<select>
+  <option> - </option>
+  <option>O +ve</option>
+  <option>O -ve</option>
+  <option>O Unknown</option>
+  <option>A +ve</option>
+  <option>A -ve</option>
+  <option>A Unknown</option>
+  <option>B +ve</option>
+  <option>B -ve</option>
+  <option>B Unknown</option>
+  <option>AB +ve</option>
+  <option>AB -ve</option>
+  <option>AB Unknown</option>
+  <option>Unknown</option>
+ </select>
+</fieldset>
+<fieldset>
+  <label>
+    <input type="checkbox" id ="checkbox"name="donateBlood">I want to donate blood</label>
+  
+</fieldset>
+<fieldset>
+  <label for="file" >Upload Photo Format:.tiff MaxSize:2MB</label>
+  <div id="file"><input type="file" id="file-input" maxlength="2097152"  accept="image/tiff" /></div>
+</fieldset>
+<fieldset>
+  <label for="file" >Upload Signature Format:.tiff MaxSize:2MB</label>
+  <div id="file"><input type="file" id="file-input" maxlength="2097152"   accept="image/tiff"/></div>
+</fieldset>
+<button type="submit">Submit</button>
+</form>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
